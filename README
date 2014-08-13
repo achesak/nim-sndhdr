@@ -1,0 +1,11 @@
+---- About ----
+
+nimrod-sndhdr is a Nimrod module for determining the type of a sound file from a given file, filename, or sequence of bytes. It can detect many common sound file formats.
+
+See the documentation.html file for the full list of formats, usage, and more info.
+
+nimrod-sndhdr requires the int2ascii.nim file, available at https://github.com/achesak/nimrod-int2ascii.
+
+---- License ----
+
+nimrod-sndhdr is released under the MIT open source license.
