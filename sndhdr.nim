@@ -59,9 +59,6 @@
 ## has a TSoundType of SVX8 instead.)
 
 
-import int2ascii
-
-
 type TSoundType* {.pure.} = enum
     AIFC, AIFF, AU, HCOM, VOC, WAV, SVX8, SNDT, SNDR, FLAC, MIDI, MP3, Vorbis, SMUS, CMUS,
     VOX, M4A, WMA, RA, RAStream, RMStream, DSS, DVF, AAC, AMR, BroadVoice, SILK, G117A,
@@ -70,6 +67,21 @@ type TSoundType* {.pure.} = enum
 
 
 proc testSound(data : seq[int8]): TSoundType
+
+
+proc int2ascii(i : seq[int8]): string = 
+    ## Converts a sequence of integers into a string containing all of the characters.
+    
+    var s : string = ""
+    for j, value in i:
+        s = s & (chr(int(value)))
+    return s
+
+
+proc `==`(i : seq[int8], s : string): bool = 
+    ## Operator for comparing a seq of ints with a string.
+    
+    return int2ascii(i) == s
 
 
 proc testAIFC(value : seq[int8]): bool = 
