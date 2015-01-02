@@ -1,72 +1,72 @@
-# Nimrod module for determining the type of sound files.
+# Nim module for determining the type of sound files.
 # Ported from Python's sndhdr module.
 
 # Written by Adam Chesak.
 # Released under the MIT open source license.
 
 
-## nimrod-sndhdr is a Nimrod module for determining the type of sound files.
+## nim-sndhdr is a Nim module for determining the type of sound files.
 ##
 ## List of detected formats:
 ##
-## - AIFF (Audio Interchange File Format) format - TSoundType.AIFF
-## - AIFC (AIFF Compressed) format - TSoundType.AIFC
-## - AU (Sun audio) format - TSoundType.AU
-## - HCOM (HCOM Sound Tools) format - TSoundType.HCOM
-## - VOC (Creative Voice) format - TSoundType.VOC
-## - 8SVX (8-Bit Sampled Voice) format - TSoundType.SVX8
-## - SNDT (SndTool) format - TSoundType.SNDT
-## - SNDR (Sounder) format - TSoundType.SNDR
-## - FLAC (Free Lossless Audio Codec) format - TSoundType.FLAC
-## - MIDI (Musical Instrument Digital Interface) format - TSoundType.MIDI
-## - MP3 (MPEG-1 or MPEG-2 Audio Layer III) format - TSoundType.MP3
-## - Ogg Vorbis format - TSoundType.Vorbis
-## - SMUS (IFF Simple Musical Score) format - TSoundType.SMUS
-## - CMUS (IFF Musical Score) format - TSoundType.CMUS
-## - VOX (Dialogic ADPCM) format - TSoundType.VOX
-## - M4A (MPEG-4 Part 14) format - TSoundType.M4A
-## - WMA (Windows Media Audio) format - TSoundType.WMA
-## - RA (RealAudio) format - TSoundType.RA
-## - RA Stream (RealAudio streaming) format - TSoundType.RAStream
-## - RM Stream (RealMedia streaming) format - TSoundType.RMStream
-## - DSS (Digital Speech Standard) format - TSoundType.DSS
-## - DVF (Sony Digital Voice) format - TSoundType.DVF
-## - AAC (Advanced Audio Coding) format - TSoundType.AAC
-## - AMR (Adaptive Multi-Rate) format - TSoundType.AMR
-## - BroadVoice16 format - TSoundType.BroadVoice
-## - SILK (Skype speech) format - TSoundType.SILK
-## - G117A (G.117.0 A-law) format - TSoundType.G117A
-## - G117MU (G.117.0 MU-law) format - TSoundType.G117MU
-## - iLBC (Internet Low Bitrate Codec) format - TSoundType.iLBC
-## - Musepack format - TSoundType.Musepack
-## - Shorten format - TSoundType.Shorten
-## - ADX (Dreamcast audio) format - TSoundType.ADX
-## - ACD (Sony Sonic Foundry Acid Music) format - TSoundType.ACD
-## - CAFF (Apple Core Audio) format - TSoundType.CAFF
-## - VMD (VocalTec VoIP media) format - TSoundType.VMD
-## - WMMP (Walkman MP3 container) format - TSoundType.WMMP
-## - AST (Need for Speed: Underground audio) format - TSoundType.AST
-## - RMI (Windows Musical Instrument Digital Interface) format - TSoundType.RMI
-## - QCP (Qualcomm PureVoice) format - TSoundType.QCP
-## - CD-DA (Compact Disc Digital Audio) format - TSoundType.CDDA
-## - NES (NES sound) format - TSoundType.NES
-## - KOZ (Sprint Music Store audio) format - TSoundType.KOZ
-## - Csound (Csound music) format - TSoundType.Csound
-## - Undetermined format - TSoundType.Other
-## - Invalid file or byte sequence (less than 512 bytes) - TSoundType.Invalid
+## - AIFF (Audio Interchange File Format) format - SoundType.AIFF
+## - AIFC (AIFF Compressed) format - SoundType.AIFC
+## - AU (Sun audio) format - SoundType.AU
+## - HCOM (HCOM Sound Tools) format - SoundType.HCOM
+## - VOC (Creative Voice) format - SoundType.VOC
+## - 8SVX (8-Bit Sampled Voice) format - SoundType.SVX8
+## - SNDT (SndTool) format - SoundType.SNDT
+## - SNDR (Sounder) format - SoundType.SNDR
+## - FLAC (Free Lossless Audio Codec) format - SoundType.FLAC
+## - MIDI (Musical Instrument Digital Interface) format - SoundType.MIDI
+## - MP3 (MPEG-1 or MPEG-2 Audio Layer III) format - SoundType.MP3
+## - Ogg Vorbis format - SoundType.Vorbis
+## - SMUS (IFF Simple Musical Score) format - SoundType.SMUS
+## - CMUS (IFF Musical Score) format - SoundType.CMUS
+## - VOX (Dialogic ADPCM) format - SoundType.VOX
+## - M4A (MPEG-4 Part 14) format - SoundType.M4A
+## - WMA (Windows Media Audio) format - SoundType.WMA
+## - RA (RealAudio) format - SoundType.RA
+## - RA Stream (RealAudio streaming) format - SoundType.RAStream
+## - RM Stream (RealMedia streaming) format - SoundType.RMStream
+## - DSS (Digital Speech Standard) format - SoundType.DSS
+## - DVF (Sony Digital Voice) format - SoundType.DVF
+## - AAC (Advanced Audio Coding) format - SoundType.AAC
+## - AMR (Adaptive Multi-Rate) format - SoundType.AMR
+## - BroadVoice16 format - SoundType.BroadVoice
+## - SILK (Skype speech) format - SoundType.SILK
+## - G117A (G.117.0 A-law) format - SoundType.G117A
+## - G117MU (G.117.0 MU-law) format - SoundType.G117MU
+## - iLBC (Internet Low Bitrate Codec) format - SoundType.iLBC
+## - Musepack format - SoundType.Musepack
+## - Shorten format - SoundType.Shorten
+## - ADX (Dreamcast audio) format - SoundType.ADX
+## - ACD (Sony Sonic Foundry Acid Music) format - SoundType.ACD
+## - CAFF (Apple Core Audio) format - SoundType.CAFF
+## - VMD (VocalTec VoIP media) format - SoundType.VMD
+## - WMMP (Walkman MP3 container) format - SoundType.WMMP
+## - AST (Need for Speed: Underground audio) format - SoundType.AST
+## - RMI (Windows Musical Instrument Digital Interface) format - SoundType.RMI
+## - QCP (Qualcomm PureVoice) format - SoundType.QCP
+## - CD-DA (Compact Disc Digital Audio) format - SoundType.CDDA
+## - NES (NES sound) format - SoundType.NES
+## - KOZ (Sprint Music Store audio) format - SoundType.KOZ
+## - Csound (Csound music) format - SoundType.Csound
+## - Undetermined format - SoundType.Other
+## - Invalid file or byte sequence (less than 512 bytes) - SoundType.Invalid
 ##
-## (As Nimrod does not allow for identifier names beginning with digits, the 8SVX format
-## has a TSoundType of SVX8 instead.)
+## (As Nim does not allow for identifier names beginning with digits, the 8SVX format
+## has a SoundType of SVX8 instead.)
 
 
-type TSoundType* {.pure.} = enum
+type SoundType* {.pure.} = enum
     AIFC, AIFF, AU, HCOM, VOC, WAV, SVX8, SNDT, SNDR, FLAC, MIDI, MP3, Vorbis, SMUS, CMUS,
     VOX, M4A, WMA, RA, RAStream, RMStream, DSS, DVF, AAC, AMR, BroadVoice, SILK, G117A,
     G117MU, iLBC, Musepack, Shorten, ADX, ACD, CAFF, VMD, WMMP, AST, RMI, QCP, CDDA, NES,
     KOZ, Csound, Other, Invalid
 
 
-proc testSound(data : seq[int8]): TSoundType
+proc testSound*(data : seq[int8]): SoundType
 
 
 proc int2ascii(i : seq[int8]): string = 
@@ -394,117 +394,117 @@ proc testCsound(value : seq[int8]): bool =
     return value[0..15] == "<CsoundSynthesiz"
 
 
-proc testSound*(file : TFile): TSoundType = 
+proc testSound*(file : File): SoundType = 
     ## Determines the format of the sound file given.
     
     var data = newSeq[int8](512)
     var b : int = file.readBytes(data, 0, 512)
     if b < 512:
-        return TSoundType.Invalid
+        return SoundType.Invalid
     return testSound(data)
 
 
-proc testSound*(filename : string): TSoundType = 
+proc testSound*(filename : string): SoundType = 
     ## Determines the format of the sound file with the specified filename.
     
-    var file : TFile = open(filename)
-    var format : TSoundType = testSound(file)
+    var file : File = open(filename)
+    var format : SoundType = testSound(file)
     file.close()
     return format
 
 
-proc testSound*(data : seq[int8]): TSoundType = 
+proc testSound*(data : seq[int8]): SoundType = 
     ## Determines the format of the sound file from the bytes given.
     
     if len(data) < 512:
-        return TSoundType.Invalid
+        return SoundType.Invalid
     elif testAIFC(data):
-        return TSoundType.AIFC
+        return SoundType.AIFC
     elif testAIFF(data):
-        return TSoundType.AIFF
+        return SoundType.AIFF
     elif testAU(data):
-        return TSoundType.AU
+        return SoundType.AU
     elif testHCOM(data):
-        return TSoundType.HCOM
+        return SoundType.HCOM
     elif testVOC(data):
-        return TSoundType.VOC
+        return SoundType.VOC
     elif testWAV(data):
-        return TSoundType.WAV
+        return SoundType.WAV
     elif test8SVX(data):
-        return TSoundType.SVX8
+        return SoundType.SVX8
     elif testSNDT(data):
-        return TSoundType.SNDT
+        return SoundType.SNDT
     elif testSNDR(data):
-        return TSoundType.SNDR
+        return SoundType.SNDR
     elif testFLAC(data):
-        return TSoundType.FLAC
+        return SoundType.FLAC
     elif testMIDI(data):
-        return TSoundType.MIDI
+        return SoundType.MIDI
     elif testMP3(data):
-        return TSoundType.MP3
+        return SoundType.MP3
     elif testVorbis(data):
-        return TSoundType.Vorbis
+        return SoundType.Vorbis
     elif testSMUS(data):
-        return TSoundType.SMUS
+        return SoundType.SMUS
     elif testCMUS(data):
-        return TSoundType.CMUS
+        return SoundType.CMUS
     elif testVOX(data):
-        return TSoundType.VOX
+        return SoundType.VOX
     elif testM4A(data):
-        return TSoundType.M4A
+        return SoundType.M4A
     elif testWMA(data):
-        return TSoundType.WMA
+        return SoundType.WMA
     elif testRA(data):
-        return TSoundType.RA
+        return SoundType.RA
     elif testRAStream(data):
-        return TSoundType.RAStream
+        return SoundType.RAStream
     elif testRMStream(data):
-        return TSoundType.RMStream
+        return SoundType.RMStream
     elif testDSS(data):
-        return TSoundType.DSS
+        return SoundType.DSS
     elif testDVF(data):
-        return TSoundType.DVF
+        return SoundType.DVF
     elif testAAC(data):
-        return TSoundType.AAC
+        return SoundType.AAC
     elif testAMR(data):
-        return TSoundType.AMR
+        return SoundType.AMR
     elif testBroadVoice(data):
-        return TSoundType.BroadVoice
+        return SoundType.BroadVoice
     elif testSILK(data):
-        return TSoundType.SILK
+        return SoundType.SILK
     elif testG117A(data):
-        return TSoundType.G117A
+        return SoundType.G117A
     elif testG117MU(data):
-        return TSoundType.G117MU
+        return SoundType.G117MU
     elif testiLBC(data):
-        return TSoundType.iLBC
+        return SoundType.iLBC
     elif testMusepack(data):
-        return TSoundType.Musepack
+        return SoundType.Musepack
     elif testShorten(data):
-        return TSoundType.Shorten
+        return SoundType.Shorten
     elif testADX(data):
-        return TSoundType.ADX
+        return SoundType.ADX
     elif testACD(data):
-        return TSoundType.ACD
+        return SoundType.ACD
     elif testCAFF(data):
-        return TSoundType.CAFF
+        return SoundType.CAFF
     elif testVMD(data):
-        return TSoundType.VMD
+        return SoundType.VMD
     elif testWMMP(data):
-        return TSoundType.WMMP
+        return SoundType.WMMP
     elif testAST(data):
-        return TSoundType.AST
+        return SoundType.AST
     elif testRMI(data):
-        return TSoundType.RMI
+        return SoundType.RMI
     elif testQCP(data):
-        return TSoundType.QCP
+        return SoundType.QCP
     elif testCDDA(data):
-        return TSoundType.CDDA
+        return SoundType.CDDA
     elif testNES(data):
-        return TSoundType.NES
+        return SoundType.NES
     elif testKOZ(data):
-        return TSoundType.KOZ
+        return SoundType.KOZ
     elif testCsound(data):
-        return TSoundType.Csound
+        return SoundType.Csound
     else:
-        return TSoundType.Other
+        return SoundType.Other
