@@ -7,7 +7,7 @@
 
 ## nim-sndhdr is a Nim module for determining the type of sound files.
 ##
-## List of detected formats:
+## List of detectable formats:
 ##
 ## - AIFF (Audio Interchange File Format) format - SoundType.AIFF
 ## - AIFC (AIFF Compressed) format - SoundType.AIFC
@@ -72,10 +72,13 @@ proc testSound*(data : seq[int8]): SoundType
 proc int2ascii(i : seq[int8]): string = 
     ## Converts a sequence of integers into a string containing all of the characters.
     
+    let h = high(uint8).int + 1
+    
     var s : string = ""
     for j, value in i:
-        s = s & (chr(int(value)))
+        s = s & chr(value %% h)
     return s
+
 
 
 proc `==`(i : seq[int8], s : string): bool = 
