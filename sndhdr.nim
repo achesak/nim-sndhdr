@@ -59,6 +59,9 @@
 ## has a SoundType of SVX8 instead.)
 
 
+import os
+
+
 type SoundType* {.pure.} = enum
     AIFC, AIFF, AU, HCOM, VOC, WAV, SVX8, SNDT, SNDR, FLAC, MIDI, MP3, Vorbis, SMUS, CMUS,
     VOX, M4A, WMA, RA, RAStream, RMStream, DSS, DVF, AAC, AMR, BroadVoice, SILK, G117A,
@@ -511,3 +514,13 @@ proc testSound*(data : seq[int8]): SoundType =
         return SoundType.Csound
     else:
         return SoundType.Other
+
+
+# When run as it's own program, determine the type of the provided sound file:
+when isMainModule:
+    
+    if paramCount() < 2:
+        echo("Invalid number of parameters. Usage:\nsndhdr [filename1] [filename2] ...")
+    
+    for i in 1..paramCount():
+        echo("Detected file type for \"" & paramStr(i) & "\": " & $testSound(paramStr(i)))

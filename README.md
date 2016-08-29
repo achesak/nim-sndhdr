@@ -10,6 +10,10 @@ Usage:
     testSound(filename : string)
     testSound(data : seq[int8])
 
+nim-sndhdr can also be used as a command line program:
+
+    sndhdr [filename1] [filename2] ...
+
 List of detectable formats:
 
 * AIFF (Audio Interchange File Format) format - `SoundType.AIFF`
